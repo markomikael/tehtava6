@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.room.Room;
 
 import org.w3c.dom.Text;
 
@@ -21,6 +22,7 @@ public class adapteri  extends ArrayAdapter<MyEntity>{
 
     private  Context context;
     ArrayList <MyEntity> dataset;
+    TauluDao td;
 
 
     public adapteri(@NonNull Context context, int resource, @NonNull List objects) {
@@ -49,12 +51,13 @@ public class adapteri  extends ArrayAdapter<MyEntity>{
         teksti2.setText(dataset.get(position).tieto);
         teksti3.setText(dataset.get(position).aika);
 
+
+
         nappula2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                dataset.remove(position);//poistaa vain myentitiystä ei poista tietokannasta.
-                notifyDataSetChanged();
+                //ei toiminut tämä poisto oikein. Jos voitas kattoo tunnilla miten tehdään?
 
             }
         });
